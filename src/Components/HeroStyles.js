@@ -7,6 +7,12 @@ export const HeroSection = styled.section`
   max-height: 1100px;
   position: relative;
   overflow: hidden;
+  ${(props) =>
+    props.isOpen
+      ? css`
+          filter: blur(5px);
+        `
+      : null}
 `;
 
 export const HeroWrapper = styled.div`
@@ -32,6 +38,7 @@ export const HeroSlider = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
   &::before {
     content: "";
     position: absolute;
@@ -59,6 +66,7 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1600px;
+
   color: white;
   h1 {
     font-size: 30px;

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { FaGhost } from "react-icons/fa";
 import { menuData } from "data/MenuData";
@@ -15,6 +15,12 @@ const Nav = styled.nav`
   position: fixed;
   width: 100%;
   background-color: black;
+  ${(props) =>
+    props.isOpen
+      ? css`
+          filter: blur(5px);
+        `
+      : null}
 `;
 
 const NavLink = styled(Link)`
@@ -67,13 +73,13 @@ const NavBtn = styled.div`
   }
 `;
 
-const Header = () => {
+const Header = ({ toggle, isOpen }) => {
   return (
-    <Nav>
+    <Nav isOpen={isOpen}>
       <Logo to="/">
         <FaGhost />
       </Logo>
-      <MenuBars />
+      <MenuBars onClick={() => toggle()} />
       <NavMenu>
         {menuData.map((item, index) => {
           return (
