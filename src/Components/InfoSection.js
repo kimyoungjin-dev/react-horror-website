@@ -47,6 +47,8 @@ const ColumnRight = styled.div`
     width: 100%;
     height: 70%;
     border-radius: 10px;
+    top: ${({ delay }) => (delay ? "0" : "-100%")};
+    transition: 3s ease-in-out;
 
     @media screen and (max-width: 768px) {
       width: 100%;

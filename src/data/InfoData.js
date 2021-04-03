@@ -1,5 +1,4 @@
 import ImageOne from "images/house-1.webp";
-import ImageTwo from "images/house-4.webp";
 
 export const InfoData = {
   heading: "The scariest house of horror in the world",
