@@ -8,6 +8,7 @@ const globalStyles = createGlobalStyle`
         box-sizing:border-box;
         padding:0;
         margin:0;
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
     a{
@@ -15,11 +16,8 @@ const globalStyles = createGlobalStyle`
         color:inherit;
     }
     
-    body{
-        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        background-color:black;
-        color:white;
-        padding:0px 10px;
+    html,body{
+        overflow-x:hidden;
     }
 
     input{
