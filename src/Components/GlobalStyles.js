@@ -18,6 +18,8 @@ const globalStyles = createGlobalStyle`
     
     html,body{
         overflow-x:hidden;
+        background-color:black;
+        color:white
 
     }
 
