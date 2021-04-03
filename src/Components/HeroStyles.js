@@ -7,8 +7,8 @@ export const HeroSection = styled.section`
   max-height: 1100px;
   position: relative;
   overflow: hidden;
-  ${(props) =>
-    props.isOpen
+  ${({ isOpen }) =>
+    isOpen
       ? css`
           filter: blur(5px);
         `
@@ -66,8 +66,8 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1600px;
-
   color: white;
+
   h1 {
     font-size: 30px;
     font-weight: 400;
@@ -75,6 +75,9 @@ export const HeroContent = styled.div`
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
     text-align: left;
     margin-bottom: 0.8rem;
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
   }
 
   p {
@@ -82,11 +85,23 @@ export const HeroContent = styled.div`
     margin-bottom: 1.2rem;
     font-size: 20px;
     text-shadow: 1px 1px 2px red, 0 0 1em white, 0 0 0.2em white;
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  div {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      justify-content: center;
+    }
   }
 `;
+
 export const Arrow = styled(IoMdArrowRoundForward)`
   margin-left: 5px;
 `;
+
 const ArrowButton = css`
   width: 50px;
   height: 50px;
@@ -98,6 +113,7 @@ const ArrowButton = css`
   margin-right: 10px;
   user-select: none;
   transition: 0.3s;
+
   &:hover {
     background-color: white;
     transform: scale(1.05);
