@@ -14,7 +14,7 @@ import {
   SliderButton,
 } from "Components/HeroStyles";
 
-const Hero = () => {
+const Hero = ({ isOpen }) => {
   const [current, setCurrent] = useState(0);
   const length = SliderData.length;
   const timeout = useRef(null);
@@ -44,7 +44,7 @@ const Hero = () => {
   }
 
   return (
-    <HeroSection>
+    <HeroSection isOpen={isOpen}>
       <HeroWrapper>
         {SliderData.map((slide, index) => {
           return (
