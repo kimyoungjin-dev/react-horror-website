@@ -55,10 +55,12 @@ const Hero = ({ isOpen }) => {
                   <HeroContent>
                     <h1>{slide.title}</h1>
                     <p>{slide.place}</p>
-                    <Button to={slide.path} primary={true}>
-                      {slide.label}
-                      <Arrow />
-                    </Button>
+                    <div>
+                      <Button to={slide.path} primary={true}>
+                        {slide.label}
+                        <Arrow />
+                      </Button>
+                    </div>
                   </HeroContent>
                 </HeroSlider>
               )}
