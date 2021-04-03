@@ -8,7 +8,6 @@ const App = () => {
     <>
       <GlobalStyles />
       <Router />
-      <Hero />
     </>
   );
 };
