@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import GlobalStyles from "Components/GlobalStyles";
 import Router from "Components/Router";
-import Hero from "Components/Hero";
 
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
   return (
     <>
       <GlobalStyles />
-      <Router />
+      <Router toggle={toggle} isOpen={isOpen} />
     </>
   );
 };
