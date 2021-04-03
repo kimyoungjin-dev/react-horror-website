@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { Button } from "./Button";
 import { SliderData } from "./SliderData";
@@ -45,12 +45,7 @@ const HeroSlider = styled.div`
     left: 0;
     overflow: hidden;
     opacity: 0.4;
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 0.6) 100%
-    );
+    background: content-box radial-gradient(red, black);
   }
 `;
 const HeroImage = styled.img`
@@ -67,10 +62,9 @@ const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1600px;
-  width: calc(100%-100px);
   color: white;
   h1 {
-    font-size: clamp(1rem, 8vw, 2rem);
+    font-size: 30px;
     font-weight: 400;
     text-transform: uppercase;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
@@ -79,12 +73,15 @@ const HeroContent = styled.div`
   }
 
   p {
+    color: black;
     margin-bottom: 1.2rem;
     font-size: 20px;
-    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 2px red, 0 0 1em white, 0 0 0.2em white;
   }
 `;
-const Arrow = styled(IoMdArrowRoundForward)``;
+const Arrow = styled(IoMdArrowRoundForward)`
+  margin-left: 5px;
+`;
 const ArrowButton = css`
   width: 50px;
   height: 50px;
@@ -97,8 +94,9 @@ const ArrowButton = css`
   user-select: none;
   transition: 0.3s;
   &:hover {
-    background-color: black;
+    background-color: white;
     transform: scale(1.05);
+    color: black;
   }
 `;
 const SliderButton = styled.div`
@@ -116,29 +114,59 @@ const NextButton = styled(IoArrowForward)`
 `;
 
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
+  const length = SliderData.length;
+  const timeout = useRef(null);
+
+  useEffect(() => {
+    const nextSlide = () => {
+      setCurrent((current) => (current === length - 1 ? 0 : current + 1));
+    };
+    timeout.current = setTimeout(nextSlide, 4000);
+    return () => {
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
+    };
+  }, [current, length]);
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  if (!Array.isArray(SliderData) || SliderData.length <= 0) {
+    return null;
+  }
+
   return (
     <HeroSection>
       <HeroWrapper>
         {SliderData.map((slide, index) => {
           return (
             <HeroSlide key={index}>
-              <HeroSlider>
-                <HeroImage src={slide.image} alt={slide.alt} />
-                <HeroContent>
-                  <h1>{slide.title}</h1>
-                  <p>{slide.place}</p>
-                  <Button to={slide.path} primary={true}>
-                    {slide.label}
-                    <Arrow />
-                  </Button>
-                </HeroContent>
-              </HeroSlider>
+              {index === current && (
+                <HeroSlider>
+                  <HeroImage src={slide.image} alt={slide.alt} />
+                  <HeroContent>
+                    <h1>{slide.title}</h1>
+                    <p>{slide.place}</p>
+                    <Button to={slide.path} primary={true}>
+                      {slide.label}
+                      <Arrow />
+                    </Button>
+                  </HeroContent>
+                </HeroSlider>
+              )}
             </HeroSlide>
           );
         })}
         <SliderButton>
-          <PrevArrow></PrevArrow>
-          <NextButton></NextButton>
+          <PrevArrow onClick={() => prevSlide()} />
+          <NextButton onClick={() => nextSlide()} />
         </SliderButton>
       </HeroWrapper>
     </HeroSection>
