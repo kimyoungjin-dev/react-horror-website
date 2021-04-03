@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components/macro";
+import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { FaGhost } from "react-icons/fa";
 import { menuData } from "data/MenuData";
@@ -17,7 +17,7 @@ const Nav = styled.nav`
   background-color: black;
 `;
 
-const NavLink = css`
+const NavLink = styled(Link)`
   color: white;
   display: flex;
   align-items: center;
@@ -26,18 +26,14 @@ const NavLink = css`
   cursor: pointer;
 `;
 
-const Logo = styled(Link)`
-  ${NavLink}
+const Logo = styled(NavLink)`
   font-size: 25px;
 `;
 
-const MenuBars = styled.i`
+const MenuBars = styled(FaBars)`
   display: none;
-
   @media screen and (max-width: 768px) {
     display: block;
-    background-image: url("https://images.unsplash.com/photo-1487174244970-cd18784bb4a4?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8aG9ycm9yfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
-    background-size: contain;
     height: 40px;
     width: 40px;
     cursor: pointer;
@@ -45,7 +41,7 @@ const MenuBars = styled.i`
     top: 0;
     right: 0;
     transform: translate(-50%, 25%);
-    border-radius: 50%;
+    color: white;
   }
 `;
 
@@ -59,9 +55,7 @@ const NavMenu = styled.div`
   }
 `;
 
-const NavMenuLinks = styled(Link)`
-  ${NavLink}
-`;
+const NavMenuLinks = styled(NavLink)``;
 
 const NavBtn = styled.div`
   display: flex;
