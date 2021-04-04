@@ -1,89 +1,37 @@
-import Imageone from "images/house-1.webp";
-import ImageTwo from "images/house-2.webp";
-import ImageThree from "images/house-3.webp";
-import ImageFour from "images/house-4.webp";
-
 export const SliderData = [
   {
     title: "Ranked 1st in the world's scariest place",
-    place: "Indonesia",
+    place: "Einburgh Castle",
     path: "/home",
     label: "Rank 1",
-    image: Imageone,
-    alt: "House",
+    image: "https://t1.daumcdn.net/cfile/tistory/233810485589B1981E",
+    alt: "horror",
   },
 
   {
     title: "Ranked 2st in the world's scariest place",
     place: "Galasia",
     path: "/home",
-    label: "View Home",
-    image: ImageTwo,
-    alt: "House",
+    label: "Rank 2",
+    image: "https://t1.daumcdn.net/cfile/tistory/253A0C485589B19B1E",
+    alt: "horror",
   },
 
   {
     title: "Ranked 3st in the world's scariest place",
-    place: "Korea",
+    place: "Rose Hall",
     path: "/home",
-    label: "View Home",
-    image: ImageThree,
-    alt: "House",
+    label: "Rank 3",
+    image: "https://t1.daumcdn.net/cfile/tistory/2639F9485589B1A01E",
+    alt: "horror",
   },
 
   {
     title: "Ranked 4st in the world's scariest place",
-    place: "Japan",
+    place: "Bell Farm",
     path: "/home",
-    label: "View Home",
-    image: ImageFour,
-    alt: "House",
+    label: "Rank 4",
+    image: "https://t1.daumcdn.net/cfile/tistory/273827485589B1A21F",
+    alt: "horror",
   },
 ];
-
-// export const SliderDataTwo = [
-//   {
-//     title: "Ranked 5st in the world's scariest place",
-//     price: "$4, 280,000",
-//     path: "/home",
-//     label: "View Home",
-//     image: ImageFive,
-//     alt: "House",
-//   },
-
-//   {
-//     title: "Ranked 7st in the world's scariest place",
-//     price: "$4, 280,000",
-//     path: "/home",
-//     label: "View Home",
-//     image: ImageSix,
-//     alt: "House",
-//   },
-
-//   {
-//     title: "Ranked 8st in the world's scariest place",
-//     price: "$4, 280,000",
-//     path: "/home",
-//     label: "View Home",
-//     image: ImageSeven,
-//     alt: "House",
-//   },
-
-//   {
-//     title: "Ranked 6st in the world's scariest place",
-//     price: "$4, 280,000",
-//     path: "/home",
-//     label: "View Home",
-//     image: ImageEight,
-//     alt: "House",
-//   },
-
-//   {
-//     title: "Ranked 9st in the world's scariest place",
-//     price: "$4, 280,000",
-//     path: "/home",
-//     label: "View Home",
-//     image: ImageNine,
-//     alt: "House",
-//   },
-// ];
