@@ -12,7 +12,7 @@ import {
   NextButton,
   PrevArrow,
   SliderButton,
-} from "Components/HeroStyles";
+} from "Components/InfoSection/HeroStyles";
 
 const Hero = ({ isOpen }) => {
   const [current, setCurrent] = useState(0);
